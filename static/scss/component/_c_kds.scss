@@ -1,0 +1,12 @@
+//@use 'sass:map';
+
+/* c_kds.scss */
+
+
+/* 공통 컴포넌트 : kds */
+@import 'include';
+@import 'colors';
+
+//layout 폰트 및 root elements
+@import 'fonts';
+@import 'root';
