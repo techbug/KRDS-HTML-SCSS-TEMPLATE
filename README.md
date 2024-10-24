@@ -1,8 +1,10 @@
-# 프로젝트명
+# 디지털정부 UI/UX 가이드라인 HTML SCSS 템플릿
 
-KRDS (https://uiux.egovframe.go.kr/) 템플릿
-
-@oddodd-o 님의 -krds-html-scss-js (https://github.com/oddodd-o/-krds-html-scss-js) 참조하여 SCSS오류 및 svg icon 없는것 재조정
+[**KRDS 템플릿**](https://uiux.egovframe.go.kr/) 보고 만들려다보니 SCSS 파일이 있길래
+사용해 보려니 빠진 파일들이 있다.
+막상 SCSS로 만들어 보려면 [Pulip](https://www.pulip.com/)측에서 (의도적으로) 빼놓고 올린 파일들이 있다. (사용하라고 만든거야? 돈벌려고 만든거야? )
+그리고 네트워크가 안되는 내부망 업무 사이트에 적용하기에는 경험상 사용이 힘들다.
+개인적으로 차후에 쓸 목적으로 찾아보니 [@oddodd-o](https://github.com/oddodd-o/-krds-html-scss-js)님이 이미 만들어 놓은 템플릿이 있어 참조하여 개인적으로 사용하려고 수정하여 올려본다.
 
 ## 시작에 앞서
 
@@ -11,8 +13,16 @@ KRDS (https://uiux.egovframe.go.kr/) 템플릿
 #### Live Sass Compiler
 
 -   mjieun님 블로그 참조 (https://velog.io/@mjieun/SCSS-SCSSSASS-%EC%86%8C%EA%B0%9C-Live-Sass-Compiler)
-
 -   https://www.inflearn.com/blogs/2145?srsltid=AfmBOoqhfnuQNZuJL1Lt9Aa1c-DF-9mbOPusZUEkZml1FhxLrNowb5Nf 참조
+
+### 템플릿에 없는것
+
+-   robots.txt
+-   site.webmanifest
+-   sitemap.xml
+-   browserconfig.xml
+
+등 SSO, PWA 관련 파일들...
 
 ## 프로젝트 구조
 
