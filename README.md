@@ -2,15 +2,28 @@
 
 KRDS (https://uiux.egovframe.go.kr/) 템플릿
 
+@oddodd-o 님의 -krds-html-scss-js (https://github.com/oddodd-o/-krds-html-scss-js) 참조하여 SCSS오류 및 svg icon 없는것 재조정
+
+## 시작에 앞서
+
+### VSCODE를 사용하는 경우 SASS Plugin
+
+#### Live Sass Compiler
+
+-   mjieun님 블로그 참조 (https://velog.io/@mjieun/SCSS-SCSSSASS-%EC%86%8C%EA%B0%9C-Live-Sass-Compiler)
+
+-   https://www.inflearn.com/blogs/2145?srsltid=AfmBOoqhfnuQNZuJL1Lt9Aa1c-DF-9mbOPusZUEkZml1FhxLrNowb5Nf 참조
+
 ## 프로젝트 구조
 
 ````bash
 📂 src/
 ├── 📂 pages/                       # 페이지 HTML 파일들
 │   └── index.html                  # 메인 페이지 HTML 파일
-│   └── sub_02.html                  # 서브 페이지 HTML 파일
-├── 📂 resources/                   # 리소스 폴더
+│   └── sub_layout.html             # 서브 페이지 HTML 파일
+├── 📂 static/                   	# 리소스 폴더
 │   ├── 📂 css/                     # 전역 CSS 파일들
+│   ├── 📂 fonts/                  	# font 파일들 (PretendardGOV subset)
 │   ├── 📂 images/                  # images 파일들
 │   ├── 📂 js/                      # JavaScript 파일들
 │   │   ├── 📂 component/           # 컴포넌트 관련 JS 파일 (특정한 기능을 수행하는 독립적인 UI요소)
@@ -75,10 +88,7 @@ KRDS (https://uiux.egovframe.go.kr/) 템플릿
 모바일 환경에서 적용됩니다.
 
 ```html
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
 -   `width=device-width`: 화면의 가로 너비를 각 디바이스(Device)의 가로 너비와 동일하게 적용
@@ -90,38 +100,14 @@ KRDS (https://uiux.egovframe.go.kr/) 템플릿
 ## 오픈 그래프(The Open Graph protocol)
 
 웹페이지가 소셜 미디어(페이스북 등)로 공유될 때 우선적으로 활용되는 정보를 지정합니다.
-
-Slack -
-
-<img width="549" alt="image" src="https://github.com/eehd80/-setting/assets/10627436/17b4a0bd-4630-4483-8e82-52c0b4eafdbe">
-
-KakaoTalk -
-
-<img width="246" alt="image" src="https://github.com/eehd80/-setting/assets/10627436/e4eeef46-fe12-410d-bf2e-7037a1b155ae">
-
 [더 많은 오픈 그래프 속성 보기](https://ogp.me/)
 
 ```html
-<meta
-    property="og:type"
-    content="website"
-/>
-<meta
-    property="og:title"
-    content="페이지 제목"
-/>
-<meta
-    property="og:description"
-    content="페이지 설명"
-/>
-<meta
-    property="og:image"
-    content="http://www.mysite.com/article/article1_featured_image.jpg"
-/>
-<meta
-    property="og:url"
-    content="http://www.mysite.com/article/article1.html"
-/>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="페이지 제목" />
+<meta property="og:description" content="페이지 설명" />
+<meta property="og:image" content="http://www.mysite.com/article/article1_featured_image.jpg" />
+<meta property="og:url" content="http://www.mysite.com/article/article1.html" />
 ```
 
 -   `og:type`: 페이지의 유형(E.g, `website`, `video.movie`)
@@ -138,26 +124,11 @@ KakaoTalk -
 [더 많은 트위터 카드 보기](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started)
 
 ```html
-<meta
-    name="twitter:card"
-    content="summary"
-/>
-<meta
-    name="twitter:title"
-    content="페이지 제목"
-/>
-<meta
-    name="twitter:description"
-    content="페이지 설명"
-/>
-<meta
-    name="twitter:image"
-    content="http://www.mysite.com/article/article1.html"
-/>
-<meta
-    name="twitter:domain"
-    content="사이트 명"
-/>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="페이지 제목" />
+<meta name="twitter:description" content="페이지 설명" />
+<meta name="twitter:image" content="http://www.mysite.com/article/article1.html" />
+<meta name="twitter:domain" content="사이트 명" />
 ```
 
 -   `twitter:card`: 페이지(카드)의 유형(E.g. `summary`, `player`)
@@ -177,10 +148,7 @@ KakaoTalk -
 
 ```html
 <!--<link rel="shortcut icon" href="favicon.ico" />-->
-<link
-    rel="icon"
-    href="./favicon.png"
-/>
+<link rel="icon" href="./favicon.png" />
 ```
 
 -   `favicon.ico` 64 x 64 (px) 또는 32 x 32 또는 16 x 16
@@ -192,7 +160,9 @@ https://www.naver.com/favicon.ico?1
 
 이미지를 업로드하면 손쉽게 `.ico` 파일을 제작할 수 있습니다.
 
-[iconifier.net](https://iconifier.net/)
+-   [iconifier.net](https://iconifier.net/)
+-   [favicon.io](https://favicon.io/)
+-   [Favicon.ico & App Icon Generator](https://www.favicon-generator.org/)
 
 ## Naming Case (BEM)
 
@@ -229,36 +199,143 @@ BEM이란? CSS 제작 방법론으로, 일종의 네이밍 컨벤션이라고 �
 각 브라우저의 기본 스타일을 초기화합니다.
 
 ```html
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
-/>1₩ 111
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />1₩ 111
 ```
 
 ## Google Fonts
 
-'pretendard' 폰트의 가변 다이나믹 서브셋를 사용합니다.
+### 폰트 참조
 
-https://github.com/orioncactus/pretendard
+-   orioncactus님의 블로그 참조 (https://cactus.tistory.com/306)
+-   pretendard 폰트의 가변 다이나믹 서브셋를 사용합니다. (https://github.com/orioncactus/pretendard)
+-   KRDS의 공공기관 폰트 Pretendard GOV 폰트 (https://github.com/orioncactus/pretendard/releases/tag/v1.3.9)
+-
+
+### Pretendard 폰트 사용시
 
 ```html
-<link
-    rel="stylesheet"
-    as="style"
-    crossorigin
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-/>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 ```
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 ```
 
 ```css
 body {
-    font-family: 'Pretendard Variable', sans-serif;
+    font-family: "Pretendard Variable", sans-serif;
 }
 ```
+
+### Pretendard GOV 사용시
+
+대한민국 공공 서비스에 적합하며, 모든 기능을 지원하는 Pretendard를 웹폰트로 사용하려면 아래 코드를 사용하세요. 사용하는 font-family 이름은 "Pretendard GOV" 입니다.
+
+-   Pretendard GOV (https://github.com/orioncactus/pretendard/tree/main/packages/pretendard-gov)
+
+#### HTML
+
+```html
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css" />
+```
+
+<details>
+
+<summary>cdnjs 및 UNPKG</summary>
+
+###### cdnjs
+
+```html
+<link rel="stylesheet" as="style" crossorigin href="https://cdnjs.cloudflare.com/ajax/libs/pretendard-gov/1.3.9/static/pretendard-gov.min.css" />
+```
+
+###### UNPKG
+
+```html
+<link rel="stylesheet" as="style" crossorigin href="https://www.unpkg.com/pretendard-gov@1.3.9/dist/web/static/pretendard-gov.css" />
+```
+
+</details>
+
+#### CSS
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
+```
+
+<details>
+
+<summary>cdnjs 및 UNPKG</summary>
+
+###### cdnjs
+
+```css
+@import url("https://cdnjs.cloudflare.com/ajax/libs/pretendard-gov/1.3.9/static/pretendard-gov.min.css");
+```
+
+###### UNPKG
+
+```css
+@import url("https://www.unpkg.com/pretendard-gov@1.3.9/dist/web/static/pretendard-gov.css");
+```
+
+</details>
+
+---
+
+### 다이나믹 서브셋
+
+최적화된 용량으로 보다 빠르게 Pretendard GOV를 사용하려면 아래 코드를 사용하세요. 사용하는 font-family 이름은 `"Pretendard GOV"` 입니다.
+
+#### HTML
+
+```html
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov-dynamic-subset.min.css" />
+```
+
+<details>
+
+<summary>cdnjs 및 UNPKG</summary>
+
+###### cdnjs
+
+```html
+<link rel="stylesheet" as="style" crossorigin href="https://cdnjs.cloudflare.com/ajax/libs/pretendard-gov/1.3.9/static/pretendard-gov-dynamic-subset.min.css" />
+```
+
+###### UNPKG
+
+```html
+<link rel="stylesheet" as="style" crossorigin href="https://www.unpkg.com/pretendard-gov@1.3.9/dist/web/static/pretendard-gov-dynamic-subset.css" />
+```
+
+</details>
+
+#### CSS
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov-dynamic-subset.min.css");
+```
+
+<details>
+
+<summary>cdnjs 및 UNPKG</summary>
+
+###### cdnjs
+
+```css
+@import url("https://cdnjs.cloudflare.com/ajax/libs/pretendard-gov/1.3.9/static/pretendard-gov-dynamic-subset.min.css");
+```
+
+###### UNPKG
+
+```css
+@import url("https://www.unpkg.com/pretendard-gov@1.3.9/dist/web/static/pretendard-gov-dynamic-subset.css");
+```
+
+</details>
+
+---
 
 ## Google Material Icons
 
@@ -268,16 +345,10 @@ body {
 
 ```html
 <!-- icons -->
-<link
-    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round"
-    rel="stylesheet"
-/>
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet" />
 
 <!-- symbols -->
-<link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@NaN,0,0,0"
-/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@NaN,0,0,0" />
 ```
 
 다음과 같이 사용할 수 있습니다.
@@ -293,10 +364,7 @@ body {
 [Getting started for web](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)
 
 ```html
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 ```
 
 다음과 같이 사용할 수 있습니다.
@@ -313,10 +381,7 @@ body {
 
 ```html
 <!-- in HEAD -->
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <!-- in BODY -->
@@ -336,10 +401,10 @@ new Swiper(요소, 옵션);
 ```
 
 ```js
-new Swiper('.swiper-container', {
-    direction: 'vertical', // 수직 슬라이드
+new Swiper(".swiper-container", {
+    direction: "vertical", // 수직 슬라이드
     autoplay: true, // 자동 재생 여부
-    loop: true, // 반복 재생 여부
+    loop: true // 반복 재생 여부
 });
 ```
 
@@ -353,16 +418,8 @@ https://odada.me/333
 > 자바스크립트 지식이 뛰어나지 않아도 충분히 사용할 수 있습니다!
 
 ```html
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
-    integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
-    crossorigin="anonymous"
-></script>
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"
-    integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q=="
-    crossorigin="anonymous"
-></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js" integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q==" crossorigin="anonymous"></script>
 ```
 
 [.to() 사용법](<https://greensock.com/docs/v3/GSAP/gsap.to()>)
@@ -373,10 +430,10 @@ gsap.to(요소, {
     속성: 값,
     속성: 값,
     duration: 시간,
-    ease: 'easing', // 애니메이션 속도 조절
+    ease: "easing", // 애니메이션 속도 조절
     onComplete: function () {
         // 애니메이션이 완료된 후 실행할 콜백 함수
-    },
+    }
 });
 ```
 
@@ -387,18 +444,18 @@ gsap.to(요소, {
     duration: 시간,
     scrollTrigger: {
         trigger: 요소, // 기준이 되는 요소
-        start: 'top center', // 시작 지점 (화면의 어느 지점에서 시작할지)
-        end: 'bottom center', // 끝 지점 (화면의 어느 지점에서 끝낼지)
-        toggleActions: 'play none none none', // 액션(재생, 일시정지, 재생, 일시정지)
+        start: "top center", // 시작 지점 (화면의 어느 지점에서 시작할지)
+        end: "bottom center", // 끝 지점 (화면의 어느 지점에서 끝낼지)
+        toggleActions: "play none none none", // 액션(재생, 일시정지, 재생, 일시정지)
         scrub: true, // 스크롤에 따라 애니메이션 속도 조절
-        markers: true, // 디버깅을 위한 마커 표시
-    },
+        markers: true // 디버깅을 위한 마커 표시
+    }
 });
 ```
 
 ```js
 gsap.to(window, 0.7, {
-    scrollTo: 0,
+    scrollTo: 0
 });
 ```
 
@@ -426,10 +483,10 @@ https://odada.me/332
 AOS.init({
     offset: 200, // 시작 지점
     duration: 600, // 애니메이션 지속 시간
-    easing: 'ease-in-out', // 애니메이션 속도 조절
+    easing: "ease-in-out", // 애니메이션 속도 조절
     delay: 100, // 애니메이션 지연 시간
     once: true, // 한 번만 실행 여부
-    anchorPlacement: 'top-bottom', // 앵커(요소) 위치
+    anchorPlacement: "top-bottom" // 앵커(요소) 위치
 });
 ```
 
@@ -452,9 +509,9 @@ AOS.init({
 new ScrollMagic.Scene({
     // 감시할 장면(Scene)을 추가
     triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
-    triggerHook: 0.8, // 화면의 80% 지점에서 보여짐 여부 감시
+    triggerHook: 0.8 // 화면의 80% 지점에서 보여짐 여부 감시
 })
-    .setClassToggle(spyEl, 'show') // 요소가 화면에 보이면 show 클래스 추가
+    .setClassToggle(spyEl, "show") // 요소가 화면에 보이면 show 클래스 추가
     .addTo(new ScrollMagic.Controller()); // 컨트롤러에 장면을 할당(필수!)
 ```
 
@@ -466,10 +523,7 @@ new ScrollMagic.Scene({
 
 ```html
 <!-- in HEAD -->
-<script
-    defer
-    src="./js/youtube.js"
-></script>
+<script defer src="./js/youtube.js"></script>
 
 <!-- in BODY -->
 <div id="player"></div>
@@ -482,28 +536,26 @@ new ScrollMagic.Scene({
 
 ```js
 // Youtube IFrame API를 비동기로 로드합니다.
-var tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/iframe_api';
-var firstScriptTag = document.getElementsByTagName('script')[0];
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubePlayerAPIReady() {
     // <div id="player"></div>
-    new YT.Player('player', {
-        videoId: 'An6LvWQuj_8', // 재생할 유튜브 영상 ID
+    new YT.Player("player", {
+        videoId: "An6LvWQuj_8", // 재생할 유튜브 영상 ID
         playerVars: {
             autoplay: true, // 자동 재생 유무
             loop: true, // 반복 재생 유무
-            playlist: 'An6LvWQuj_8', // 반복 재생할 유튜브 영상 ID 목록
+            playlist: "An6LvWQuj_8" // 반복 재생할 유튜브 영상 ID 목록
         },
         events: {
             // 영상이 준비되었을 때,
             onReady: function (event) {
                 event.target.mute(); // 음소거!
-            },
-        },
+            }
+        }
     });
 }
 ```
-
-# -krds-html-scss-js
